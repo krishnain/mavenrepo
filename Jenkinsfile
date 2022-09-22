@@ -4,7 +4,7 @@ pipeline
     agent any
     stages
     {
-       stage('ContDownload')
+       stage('ContDownload_Master')
         {
             steps
             {
@@ -15,7 +15,7 @@ pipeline
             }
             
         }
-        stage('ContBuild')
+        stage('ContBuild_Master')
         {
             steps
             {
@@ -25,7 +25,7 @@ pipeline
                 }
             }
         }
-        stage('ContDeployment')
+        stage('ContDeployment_Master')
         {
             steps
             {
@@ -35,7 +35,7 @@ pipeline
                 }
             }
         }
-        stage('ContTesting')
+        stage('ContTesting_Master')
         {
             steps
             {
@@ -47,27 +47,6 @@ pipeline
                 
             }
         }
-        stage('ContDelivery')
-        {
-            steps
-            {
-                script
-                {
-                    cicd.newDeploy(env.WORKSPACE,"172.31.15.186","prodapp")
-                }
-            }
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
     }
 }
